@@ -1,12 +1,17 @@
 <?php
 
+require '../app/lib/Dev.php';
+
+use app\core\Router;
+
+spl_autoload_register(function($class) {
+    $path = '../'.str_replace('\\','/',$class.'.php');
+    if (file_exists($path)){
+        require $path;
+    }
+});
+
 session_start();
-
-define ('DS', DIRECTORY_SEPARATOR); 
-define ('ROOT', dirname(dirname(__FILE__))); 
-
-require_once(ROOT.DS.'app'.DS.'lib'.DS.'init.php');
-//require_once(ROOT.DS.'app'.DS.'lib'.DS.'router.class.php');
 
 $router = new Router;
 
