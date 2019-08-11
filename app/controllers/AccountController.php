@@ -4,10 +4,13 @@ namespace app\controllers;
 use app\core\Controller;
 
 class AccountController extends Controller {
+
     public function loginAction() {
-        echo 'страница входа';
+
+        $this -> view -> render('Вход');
     }
     public function registerAction() {
-        echo 'страница регистрации';
+        $this -> view -> layout = 'custom';
+        $this -> view -> render('Регистрация');
     }
 }

@@ -5,7 +5,7 @@ use app\core\Controller;
 
 class MainController extends Controller {
     public function indexAction() {
-        echo 'Главная страница';
+        $this -> view -> render('Главная страница');
     }
     public function contactAction() {
         echo 'Контакты ';

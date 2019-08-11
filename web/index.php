@@ -1,6 +1,6 @@
 <?php
 
-require '../app/lib/Dev.php';
+require 'app/lib/Dev.php';
 
 use app\core\Router;
 
