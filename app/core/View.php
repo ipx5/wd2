@@ -13,6 +13,8 @@ class View {
     }
 
     public function render($title, $vars = []){
+        //debug($vars);
+        extract($vars);
         $path_view='../app/views/'.$this -> path.'.php';
         $path_layout='../app/views/layouts/'.$this -> layout.'.php';
         // debug($path_layout);
@@ -21,8 +23,18 @@ class View {
             require $path_view;
             $content = ob_get_clean();
             require $path_layout;
-        } else {
-            echo 'Вид не найден: '.$this -> path;
         }
+    }
+    public function redirect($url){
+        header('location: '.$url);
+        exit;
+    }
+    public function errorCode($code){
+        http_response_code($code);
+        $path_errors = '../app/views/errors/'.$code.'.php';
+        if(file_exists($path_errors)){
+            require $path_errors;
+        }
+        exit;
     }
 }
