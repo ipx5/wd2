@@ -12,7 +12,11 @@ class MainController extends Controller {
         // ];
         // $data=$db->column('SELECT email FROM users WHERE id = :id', $params);
         // debug($data);
-        $this -> view -> render('Главная страница' );
+        $result = $this -> model -> getNews();
+        $vars = [
+            'news' => $result,
+        ];
+        $this -> view -> render('Главная страница', $vars );
     }
     public function contactAction() {
         echo 'Контакты ';
