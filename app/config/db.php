@@ -8,4 +8,4 @@
 $host='194.87.102.4';
 $db='ilya';
 $username='user';
-$password='HackerUwd2';
+$password='*****';
